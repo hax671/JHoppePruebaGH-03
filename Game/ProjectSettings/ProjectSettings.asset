@@ -167,6 +167,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.UniversidadSimonBolivar.Smogborn
+    Standalone: com.Universidad-Simon-Bolivar.Smogborn
   buildNumber:
     Standalone: 0
     VisionOS: 0
