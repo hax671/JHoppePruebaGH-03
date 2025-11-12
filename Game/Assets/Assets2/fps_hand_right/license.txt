@@ -1,0 +1,11 @@
+Model Information:
+* title:	FPS Hand Right
+* source:	https://sketchfab.com/3d-models/fps-hand-right-b9b3ac6e75c148f58de98676be2fc318
+* author:	CommunicationNode (https://sketchfab.com/Starven38)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "FPS Hand Right" (https://sketchfab.com/3d-models/fps-hand-right-b9b3ac6e75c148f58de98676be2fc318) by CommunicationNode (https://sketchfab.com/Starven38) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
