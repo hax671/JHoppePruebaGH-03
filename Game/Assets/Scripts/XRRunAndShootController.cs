@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 public class XRRunAndShootController : MonoBehaviour
 {
     [Header("Animator")]
-    public Animator animator;
+    [SerializeField] private Animator animator;
 
     [Header("Run Settings")]
-    public string runParameter = "Run"; // Bool
-    public InputActionReference moveActionReference; // Vector2 (joystick o W/S)
+    [SerializeField] private string runParameter = "Run"; // Bool
+    [SerializeField] private InputActionReference moveActionReference; // Vector2 (joystick o W/S)
 
     [Header("Shoot Settings")]
-    public string shootTrigger = "shoot"; // Trigger
-    public InputActionReference shootActionReference; // Button (gatillo o click)
+    [SerializeField] private string shootTrigger = "shoot"; // Trigger
+    [SerializeField] private InputActionReference shootActionReference; // Button (gatillo o click)
 
     private void OnEnable()
     {
@@ -20,7 +20,7 @@ public class XRRunAndShootController : MonoBehaviour
         moveActionReference.action.Enable();
         shootActionReference.action.Enable();
 
-        // Suscribirse al disparo
+        // Suscribirse al evento de disparo
         shootActionReference.action.performed += OnShoot;
     }
 
@@ -50,4 +50,5 @@ public class XRRunAndShootController : MonoBehaviour
         animator.SetTrigger(shootTrigger);
     }
 }
+
 
