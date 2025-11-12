@@ -3034,6 +3034,20 @@ MonoBehaviour:
   animator: {fileID: 1546699089}
   animationParameter: Run
   moveActionReference: {fileID: -9001000465050553144, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
+--- !u!114 &1546699091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546699087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804d91adefd98c44f85c171d2bb2b66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1546699089}
+  shootAction: {fileID: 8433367776138400449, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
 --- !u!1 &1586852609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3864,6 +3878,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1546699090}
+    - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546699091}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
 --- !u!1 &2115918440
 GameObject:
