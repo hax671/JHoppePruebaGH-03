@@ -1,0 +1,34 @@
+{
+    "name": "XrControls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "09572b44-4aca-4164-9c71-8289cb59b317",
+            "actions": [
+                {
+                    "name": "Run",
+                    "type": "Value",
+                    "id": "17492515-7950-4028-b9b0-deff74b7a42c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "73e5ea87-e4e1-440d-9655-6466f944290e",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

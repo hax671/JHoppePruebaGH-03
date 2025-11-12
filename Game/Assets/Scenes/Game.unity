@@ -2376,7 +2376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1497227868}
+  - {fileID: 1546699088}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1135011468
@@ -2949,11 +2949,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &1497227868 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8897093224900880590, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
-  m_PrefabInstance: {fileID: 2000934305}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1520286251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,6 +3004,36 @@ MonoBehaviour:
   lineRenderer_teleport: {fileID: 302646994}
   xrInteractorLineVisual_teleport: {fileID: 302646993}
   Joystick_North_Ref: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!1 &1546699087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8128668236925612103, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
+  m_PrefabInstance: {fileID: 1827377750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1546699088 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8897093224900880590, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
+  m_PrefabInstance: {fileID: 1827377750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1546699089 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -5644133064174452605, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
+  m_PrefabInstance: {fileID: 1827377750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1546699090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546699087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d94e1772f0aaf84b9b520bdbc6756b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1546699089}
+  animationParameter: Run
+  moveActionReference: {fileID: -9001000465050553144, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
 --- !u!1 &1586852609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,7 +3574,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 1497227868}
+  m_ModelPrefab: {fileID: 1546699088}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -3760,7 +3785,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
---- !u!1001 &2000934305
+--- !u!1001 &1827377750
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -3835,7 +3860,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546699090}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
 --- !u!1 &2115918440
 GameObject:
