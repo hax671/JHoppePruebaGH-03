@@ -14,41 +14,42 @@ public class XRRunAndShootController : MonoBehaviour
     [SerializeField] private string shootTrigger = "shoot"; // Trigger
     [SerializeField] private InputActionReference shootActionReference; // Button (gatillo o click)
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource shootAudioSource; // Arrastra aquí el AudioSource con tu sonido
+
     private void OnEnable()
     {
-        // Activar acciones
         moveActionReference.action.Enable();
         shootActionReference.action.Enable();
-
-        // Suscribirse al evento de disparo
         shootActionReference.action.performed += OnShoot;
     }
 
     private void OnDisable()
     {
-        // Desactivar acciones
         moveActionReference.action.Disable();
         shootActionReference.action.Disable();
-
-        // Desuscribirse del evento
         shootActionReference.action.performed -= OnShoot;
     }
 
     private void Update()
     {
-        // --- CONTROL DE CORRER ---
         Vector2 moveValue = moveActionReference.action.ReadValue<Vector2>();
-
-        // Si el joystick se mueve hacia arriba o W está presionada
         bool isRunning = moveValue.y > 0.5f;
         animator.SetBool(runParameter, isRunning);
     }
 
     private void OnShoot(InputAction.CallbackContext context)
     {
-        // --- CONTROL DE DISPARO ---
+        // Activar animación
         animator.SetTrigger(shootTrigger);
+
+        // Reproducir sonido si existe el AudioSource
+        if (shootAudioSource != null)
+        {
+            shootAudioSource.Play();
+        }
     }
 }
+
 
 
