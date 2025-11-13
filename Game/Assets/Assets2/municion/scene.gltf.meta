@@ -29,27 +29,9 @@ ScriptedImporter:
     originalUri: Assets\Assets2\municion\scene.bin
     assetPath: Assets\Assets2\municion\scene.bin
   - type: 1
-    originalUri: Assets\Assets2\municion\textures\07_-_Default_diffuse.png
-    assetPath: Assets\Assets2\municion\textures\07_-_Default_diffuse.png
+    originalUri: Assets\Assets2\municion\textures\lambert1_baseColor.png
+    assetPath: Assets\Assets2\municion\textures\lambert1_baseColor.png
   - type: 1
-    originalUri: Assets\Assets2\municion\textures\07_-_Default_specularGlossiness.png
-    assetPath: Assets\Assets2\municion\textures\07_-_Default_specularGlossiness.png
-  - type: 1
-    originalUri: Assets\Assets2\municion\textures\07_-_Default_emissive.png
-    assetPath: Assets\Assets2\municion\textures\07_-_Default_emissive.png
-  - type: 1
-    originalUri: Assets\Assets2\municion\textures\07_-_Default_normal.png
-    assetPath: Assets\Assets2\municion\textures\07_-_Default_normal.png
-  - type: 1
-    originalUri: Assets\Assets2\municion\textures\08_-_Default_diffuse.png
-    assetPath: Assets\Assets2\municion\textures\08_-_Default_diffuse.png
-  - type: 1
-    originalUri: Assets\Assets2\municion\textures\08_-_Default_specularGlossiness.png
-    assetPath: Assets\Assets2\municion\textures\08_-_Default_specularGlossiness.png
-  - type: 1
-    originalUri: Assets\Assets2\municion\textures\08_-_Default_emissive.png
-    assetPath: Assets\Assets2\municion\textures\08_-_Default_emissive.png
-  - type: 1
-    originalUri: Assets\Assets2\municion\textures\08_-_Default_normal.png
-    assetPath: Assets\Assets2\municion\textures\08_-_Default_normal.png
+    originalUri: Assets\Assets2\municion\textures\lambert1_normal.png
+    assetPath: Assets\Assets2\municion\textures\lambert1_normal.png
   reportItems: []

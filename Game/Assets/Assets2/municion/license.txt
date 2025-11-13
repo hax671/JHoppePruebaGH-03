@@ -1,11 +1,11 @@
 Model Information:
-* title:	Munición
-* source:	https://sketchfab.com/3d-models/municion-be89648ab1e141d092efab240176f620
-* author:	Melelb99 (https://sketchfab.com/melelb99)
+* title:	Municion
+* source:	https://sketchfab.com/3d-models/municion-98e4429f929b403ba0e0b576651c5330
+* author:	EmpDevTeam (https://sketchfab.com/EmpDevTeam)
 
 Model License:
 * license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 * requirements:	Author must be credited. Commercial use is allowed.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "Munición" (https://sketchfab.com/3d-models/municion-be89648ab1e141d092efab240176f620) by Melelb99 (https://sketchfab.com/melelb99) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+This work is based on "Municion" (https://sketchfab.com/3d-models/municion-98e4429f929b403ba0e0b576651c5330) by EmpDevTeam (https://sketchfab.com/EmpDevTeam) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -3,156 +3,81 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 64,
+      "count": 1492,
       "max": [
-        9.249595642089844,
-        6.382852554321289,
-        -7.42333984375
+        3.2637979984283447,
+        9.689177513122559,
+        8.332070350646973
       ],
       "min": [
-        -9.142083168029785,
-        -6.448613166809082,
-        -51.90013885498047
+        -3.2637979984283447,
+        0.0018062591552734375,
+        -8.332077980041504
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 768,
+      "byteOffset": 17904,
       "componentType": 5126,
-      "count": 64,
+      "count": 1492,
       "max": [
         1.0,
-        1.0,
-        2.099384843745611e-08
-      ],
-      "min": [
-        -1.0,
-        -1.0,
-        -1.4209461163261494e-08
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 64,
-      "max": [
-        4.748327242509731e-08,
-        1.5081035087405326e-07,
         1.0,
         1.0
       ],
       "min": [
-        -8.270072981986232e-08,
-        -5.827877203046228e-08,
         -1.0,
-        1.0
-      ],
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 64,
-      "max": [
-        0.8895960450172424,
-        0.9990000128746033
-      ],
-      "min": [
-        0.0010000000474974513,
-        0.0010000000474974513
-      ],
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 0,
-      "componentType": 5125,
-      "count": 168,
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 1536,
-      "componentType": 5126,
-      "count": 600,
-      "max": [
-        10.458331108093262,
-        7.386221408843994,
-        0.0
-      ],
-      "min": [
-        -10.446062088012695,
-        -7.451981544494629,
-        -59.32347869873047
-      ],
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 2,
-      "byteOffset": 8736,
-      "componentType": 5126,
-      "count": 600,
-      "max": [
-        0.9999455809593201,
-        1.0,
-        1.0
-      ],
-      "min": [
-        -0.9999455809593201,
-        -1.0,
+        -0.9658764004707336,
         -1.0
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 3,
-      "byteOffset": 1024,
       "componentType": 5126,
-      "count": 600,
+      "count": 1492,
       "max": [
-        0.9996898770332336,
-        1.0,
-        0.8711276650428772,
+        0.9999997615814209,
+        0.9998260140419006,
+        0.9981649518013,
         1.0
       ],
       "min": [
-        -0.9996899366378784,
-        -1.0,
-        -0.8711039423942566,
-        1.0
+        -0.9999998211860657,
+        -0.9998260140419006,
+        -0.9960348606109619,
+        -1.0
       ],
       "type": "VEC4"
     },
     {
       "bufferView": 1,
-      "byteOffset": 512,
       "componentType": 5126,
-      "count": 600,
+      "count": 1492,
       "max": [
-        0.9994999766349792,
-        0.9922857284545898
+        0.9827185869216919,
+        0.9879509806632996
       ],
       "min": [
-        0.0005000000237487257,
-        0.0005000000237487257
+        0.05465817451477051,
+        0.012482692487537861
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
-      "byteOffset": 672,
       "componentType": 5125,
-      "count": 1548,
+      "count": 6852,
       "type": "SCALAR"
     }
   ],
   "asset": {
     "extras": {
-      "author": "Melelb99 (https://sketchfab.com/melelb99)",
+      "author": "EmpDevTeam (https://sketchfab.com/EmpDevTeam)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/3d-models/municion-be89648ab1e141d092efab240176f620",
-      "title": "Munición"
+      "source": "https://sketchfab.com/3d-models/municion-98e4429f929b403ba0e0b576651c5330",
+      "title": "Municion"
     },
     "generator": "Sketchfab-12.68.0",
     "version": "2.0"
@@ -160,30 +85,30 @@
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 6864,
+      "byteLength": 27408,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 5312,
-      "byteOffset": 6864,
+      "byteLength": 11936,
+      "byteOffset": 27408,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 15936,
-      "byteOffset": 12176,
+      "byteLength": 35808,
+      "byteOffset": 39344,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 10624,
-      "byteOffset": 28112,
+      "byteLength": 23872,
+      "byteOffset": 75152,
       "byteStride": 16,
       "name": "floatBufferViews",
       "target": 34962
@@ -191,121 +116,37 @@
   ],
   "buffers": [
     {
-      "byteLength": 38736,
+      "byteLength": 99024,
       "uri": "scene.bin"
     }
   ],
-  "extensionsRequired": [
-    "KHR_materials_pbrSpecularGlossiness"
-  ],
-  "extensionsUsed": [
-    "KHR_materials_pbrSpecularGlossiness"
-  ],
   "images": [
     {
-      "uri": "textures/07_-_Default_diffuse.png"
+      "uri": "textures/lambert1_baseColor.png"
     },
     {
-      "uri": "textures/07_-_Default_specularGlossiness.png"
-    },
-    {
-      "uri": "textures/07_-_Default_emissive.png"
-    },
-    {
-      "uri": "textures/07_-_Default_normal.png"
-    },
-    {
-      "uri": "textures/08_-_Default_diffuse.png"
-    },
-    {
-      "uri": "textures/08_-_Default_specularGlossiness.png"
-    },
-    {
-      "uri": "textures/08_-_Default_emissive.png"
-    },
-    {
-      "uri": "textures/08_-_Default_normal.png"
+      "uri": "textures/lambert1_normal.png"
     }
   ],
   "materials": [
     {
       "doubleSided": true,
-      "emissiveFactor": [
-        1.0,
-        1.0,
-        1.0
-      ],
-      "emissiveTexture": {
-        "index": 2
-      },
-      "extensions": {
-        "KHR_materials_pbrSpecularGlossiness": {
-          "diffuseFactor": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "diffuseTexture": {
-            "index": 0
-          },
-          "glossinessFactor": 1.0,
-          "specularFactor": [
-            1.0,
-            1.0,
-            1.0
-          ],
-          "specularGlossinessTexture": {
-            "index": 1
-          }
-        }
-      },
-      "name": "07_-_Default",
+      "name": "lambert1",
       "normalTexture": {
-        "index": 3
-      }
-    },
-    {
-      "doubleSided": true,
-      "emissiveFactor": [
-        1.0,
-        1.0,
-        1.0
-      ],
-      "emissiveTexture": {
-        "index": 6
+        "index": 1
       },
-      "extensions": {
-        "KHR_materials_pbrSpecularGlossiness": {
-          "diffuseFactor": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "diffuseTexture": {
-            "index": 4
-          },
-          "glossinessFactor": 0.10702864035024488,
-          "specularFactor": [
-            0.0,
-            0.0,
-            0.0
-          ],
-          "specularGlossinessTexture": {
-            "index": 5
-          }
-        }
-      },
-      "name": "08_-_Default",
-      "normalTexture": {
-        "index": 7
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.0
       }
     }
   ],
   "meshes": [
     {
-      "name": "Object001_07 - Default_0",
+      "name": "Municion_Low_lambert1_0",
       "primitives": [
         {
           "attributes": {
@@ -316,22 +157,6 @@
           },
           "indices": 4,
           "material": 0,
-          "mode": 4
-        }
-      ]
-    },
-    {
-      "name": "Object002_08 - Default_0",
-      "primitives": [
-        {
-          "attributes": {
-            "NORMAL": 6,
-            "POSITION": 5,
-            "TANGENT": 7,
-            "TEXCOORD_0": 8
-          },
-          "indices": 9,
-          "material": 1,
           "mode": 4
         }
       ]
@@ -367,16 +192,16 @@
         2
       ],
       "matrix": [
-        1.0,
+        0.009999999776482582,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        1.0,
+        0.009999999776482582,
         0.0,
         0.0,
-        -1.0,
+        -0.009999999776482582,
         0.0,
         0.0,
         0.0,
@@ -384,12 +209,11 @@
         0.0,
         1.0
       ],
-      "name": "f4534d9fda7f4ae797ab3f998312cad9.fbx"
+      "name": "Municion_Low.fbx"
     },
     {
       "children": [
-        3,
-        5
+        3
       ],
       "name": "RootNode"
     },
@@ -397,57 +221,11 @@
       "children": [
         4
       ],
-      "matrix": [
-        -1.083881020545947,
-        -1.6366148323101561e-07,
-        -1.3273716238388676e-16,
-        0.0,
-        1.8054570312316198e-16,
-        6.547064932836862e-16,
-        -1.4742679595947263,
-        0.0,
-        1.509958013182831e-07,
-        -0.9999999999999885,
-        -2.220446049250313e-16,
-        0.0,
-        11.195812225341797,
-        2.734531879425049,
-        6.1634650230407715,
-        1.0
-      ],
-      "name": "Object001"
+      "name": "Municion_Low"
     },
     {
       "mesh": 0,
-      "name": "Object001_07 - Default_0"
-    },
-    {
-      "children": [
-        6
-      ],
-      "matrix": [
-        -1.083881020545947,
-        -1.6366148323101561e-07,
-        -1.3273716238388676e-16,
-        0.0,
-        1.8054570312316198e-16,
-        6.547064932836862e-16,
-        -1.4742679595947263,
-        0.0,
-        1.509958013182831e-07,
-        -0.9999999999999885,
-        -2.220446049250313e-16,
-        0.0,
-        11.195812225341797,
-        2.734531879425049,
-        6.1634650230407715,
-        1.0
-      ],
-      "name": "Object002"
-    },
-    {
-      "mesh": 1,
-      "name": "Object002_08 - Default_0"
+      "name": "Municion_Low_lambert1_0"
     }
   ],
   "samplers": [
@@ -475,30 +253,6 @@
     {
       "sampler": 0,
       "source": 1
-    },
-    {
-      "sampler": 0,
-      "source": 2
-    },
-    {
-      "sampler": 0,
-      "source": 3
-    },
-    {
-      "sampler": 0,
-      "source": 4
-    },
-    {
-      "sampler": 0,
-      "source": 5
-    },
-    {
-      "sampler": 0,
-      "source": 6
-    },
-    {
-      "sampler": 0,
-      "source": 7
     }
   ]
 }
