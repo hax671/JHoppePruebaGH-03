@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 343481478}
   - component: {fileID: 343481477}
   - component: {fileID: 343481476}
+  - component: {fileID: 343481479}
   m_Layer: 5
   m_Name: Jugar
   m_TagString: Untagged
@@ -255,6 +256,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343481474}
   m_CullTransparentMesh: 1
+--- !u!114 &343481479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343481474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92780127325c5f64ab85f7e88a3e7105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1604999658}
+  hoverSound: {fileID: 8300000, guid: 6f062f24563f2814894eb3678334888a, type: 3}
+  clickSound: {fileID: 8300000, guid: 7e1da14a6d77a374494badede95cbdeb, type: 3}
 --- !u!1 &435541576
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +557,7 @@ GameObject:
   - component: {fileID: 882476199}
   - component: {fileID: 882476198}
   - component: {fileID: 882476197}
+  - component: {fileID: 882476200}
   m_Layer: 5
   m_Name: Salir
   m_TagString: Untagged
@@ -662,6 +679,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882476195}
   m_CullTransparentMesh: 1
+--- !u!114 &882476200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882476195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92780127325c5f64ab85f7e88a3e7105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1604999658}
+  hoverSound: {fileID: 8300000, guid: 6f062f24563f2814894eb3678334888a, type: 3}
+  clickSound: {fileID: 8300000, guid: 7e1da14a6d77a374494badede95cbdeb, type: 3}
 --- !u!1 &1063153769
 GameObject:
   m_ObjectHideFlags: 0
