@@ -3278,6 +3278,8 @@ MonoBehaviour:
   arriveThreshold: 0.4
   visionRange: 8
   attackRange: 1.5
+  normalSpeed: 2
+  chaseSpeed: 4
 --- !u!195 &1491640409
 NavMeshAgent:
   m_ObjectHideFlags: 0

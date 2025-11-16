@@ -11,8 +11,8 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
 
     [Header("Parámetros de Animación")]
-    public string walkParam = "isWalking";      // bool caminar
-    public string attackTrigger = "MeleeAttack_0"; // trigger de ataque
+    public string walkParam = "isWalking";
+    public string attackTrigger = "MeleeAttack_0";
 
     [Header("Patrulla Aleatoria")]
     public float wanderRadius = 10f;
@@ -21,8 +21,13 @@ public class EnemyAI : MonoBehaviour
     public float arriveThreshold = 0.4f;
 
     [Header("Detección")]
-    public float visionRange = 12f;       // distancia para detectar al jugador (360°)
-    public float attackRange = 1.5f;      // rango de ataque
+    public float visionRange = 12f;
+    public float attackRange = 1.5f;
+
+    // << NUEVO >>
+    [Header("Velocidades")]
+    public float normalSpeed = 2f;
+    public float chaseSpeed = 4f;
 
     private Vector3 patrolPoint;
     private bool isIdle = false;
@@ -33,6 +38,9 @@ public class EnemyAI : MonoBehaviour
         if (agent == null) agent = GetComponent<NavMeshAgent>();
         if (animator == null) animator = GetComponent<Animator>();
 
+        // velocidad normal al iniciar
+        agent.speed = normalSpeed;
+
         ChooseNewPatrolPoint();
     }
 
@@ -40,10 +48,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (!isChasing)
         {
-            // si aún no persigue, revisar si el jugador entra en el radio de detección
             if (CanSeePlayer())
             {
                 isChasing = true;
+
+                // << AUMENTAR VELOCIDAD AL DETECTAR >>
+                agent.speed = chaseSpeed;
+
                 animator.SetBool(walkParam, true);
             }
         }
@@ -58,18 +69,11 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // ------------------------ DETECCIÓN ------------------------
-
-    // Detección 360° SOLO por distancia (sin ángulo, sin raycast)
     bool CanSeePlayer()
     {
         float dist = Vector3.Distance(transform.position, player.position);
-
-        // Si entra en el radio, se detecta automáticamente
         return dist <= visionRange;
     }
-
-    // ------------------------ PERSECUCIÓN ------------------------
 
     void ChasePlayer()
     {
@@ -78,7 +82,6 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(player.position);
         animator.SetBool(walkParam, true);
 
-        // atacar si está cerca
         if (distance <= attackRange)
         {
             agent.ResetPath();
@@ -86,15 +89,17 @@ public class EnemyAI : MonoBehaviour
             animator.SetTrigger(attackTrigger);
         }
 
-        // Si el jugador se aleja demasiado, vuelve a patrullar
+        // si pierde al jugador
         if (distance > visionRange + 2f)
         {
             isChasing = false;
+
+            // << VOLVER A VELOCIDAD NORMAL >>
+            agent.speed = normalSpeed;
+
             ChooseNewPatrolPoint();
         }
     }
-
-    // ------------------------ PATRULLA ------------------------
 
     void Patrol()
     {
@@ -141,4 +146,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 }
+
+
+
+
+
 
