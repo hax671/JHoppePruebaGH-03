@@ -13,6 +13,14 @@ public class EnemyAI : MonoBehaviour
     [Header("Parámetros de Animación")]
     public string walkParam = "isWalking";
     public string attackTrigger = "MeleeAttack_0";
+    public string walkSpeedParam = "walkSpeed"; // <-- nuevo parámetro
+
+    [Header("Velocidades")]
+    public float walkSpeed = 1.5f;   // velocidad normal
+    public float chaseSpeed = 4f;    // velocidad cuando persigue
+
+    public float walkAnimSpeed = 1f;     // velocidad animación normal
+    public float chaseAnimSpeed = 1.8f;  // velocidad animación persiguiendo
 
     [Header("Patrulla Aleatoria")]
     public float wanderRadius = 10f;
@@ -24,11 +32,6 @@ public class EnemyAI : MonoBehaviour
     public float visionRange = 12f;
     public float attackRange = 1.5f;
 
-    // << NUEVO >>
-    [Header("Velocidades")]
-    public float normalSpeed = 2f;
-    public float chaseSpeed = 4f;
-
     private Vector3 patrolPoint;
     private bool isIdle = false;
     private bool isChasing = false;
@@ -38,8 +41,8 @@ public class EnemyAI : MonoBehaviour
         if (agent == null) agent = GetComponent<NavMeshAgent>();
         if (animator == null) animator = GetComponent<Animator>();
 
-        // velocidad normal al iniciar
-        agent.speed = normalSpeed;
+        agent.speed = walkSpeed;
+        animator.SetFloat(walkSpeedParam, walkAnimSpeed);
 
         ChooseNewPatrolPoint();
     }
@@ -51,10 +54,8 @@ public class EnemyAI : MonoBehaviour
             if (CanSeePlayer())
             {
                 isChasing = true;
-
-                // << AUMENTAR VELOCIDAD AL DETECTAR >>
-                agent.speed = chaseSpeed;
-
+                agent.speed = chaseSpeed;                                // <-- velocidad navmesh al detectar
+                animator.SetFloat(walkSpeedParam, chaseAnimSpeed);       // <-- subir velocidad animación
                 animator.SetBool(walkParam, true);
             }
         }
@@ -69,11 +70,15 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    // ------------------------ DETECCIÓN ------------------------
+
     bool CanSeePlayer()
     {
         float dist = Vector3.Distance(transform.position, player.position);
         return dist <= visionRange;
     }
+
+    // ------------------------ PERSECUCIÓN ------------------------
 
     void ChasePlayer()
     {
@@ -89,17 +94,18 @@ public class EnemyAI : MonoBehaviour
             animator.SetTrigger(attackTrigger);
         }
 
-        // si pierde al jugador
         if (distance > visionRange + 2f)
         {
             isChasing = false;
 
-            // << VOLVER A VELOCIDAD NORMAL >>
-            agent.speed = normalSpeed;
+            agent.speed = walkSpeed;                                // <-- regresar velocidad normal
+            animator.SetFloat(walkSpeedParam, walkAnimSpeed);       // <-- regresar animación normal
 
             ChooseNewPatrolPoint();
         }
     }
+
+    // ------------------------ PATRULLA ------------------------
 
     void Patrol()
     {
@@ -146,6 +152,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 }
+
 
 
 

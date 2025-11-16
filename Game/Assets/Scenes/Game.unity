@@ -3272,14 +3272,17 @@ MonoBehaviour:
   player: {fileID: 2127572874}
   walkParam: isWalking
   attackTrigger: MeleeAttack_0
+  walkSpeedParam: walkSpeed
+  walkSpeed: 1.5
+  chaseSpeed: 4
+  walkAnimSpeed: 1
+  chaseAnimSpeed: 1.8
   wanderRadius: 10
   idleMin: 1
   idleMax: 2.5
   arriveThreshold: 0.4
   visionRange: 8
   attackRange: 1.5
-  normalSpeed: 2
-  chaseSpeed: 4
 --- !u!195 &1491640409
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3290,7 +3293,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 2
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 220
