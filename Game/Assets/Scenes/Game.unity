@@ -2559,6 +2559,18 @@ PrefabInstance:
       value: Bala
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 66e13f40238088f47ac730e30a6fd8a5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5681424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774220344278030320, guid: 66e13f40238088f47ac730e30a6fd8a5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.5681424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774220344278030320, guid: 66e13f40238088f47ac730e30a6fd8a5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5681424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774220344278030320, guid: 66e13f40238088f47ac730e30a6fd8a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13
       objectReference: {fileID: 0}
@@ -5282,8 +5294,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.055725, y: 0.08407068, z: 0.1202687}
-  m_Center: {x: 0.000563886, y: -0.009927869, z: 0.048268855}
+  m_Size: {x: 0.031364843, y: 0.029966075, z: 0.098072655}
+  m_Center: {x: -0.000068159236, y: -0.0005917964, z: 0.037170835}
 --- !u!1 &1853560202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3731706992030451005, guid: a3e1615d38c467e4d8bc26597b0a0672, type: 3}
