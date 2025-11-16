@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class XRRunAndShootController : MonoBehaviour
@@ -7,15 +7,20 @@ public class XRRunAndShootController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [Header("Run Settings")]
-    [SerializeField] private string runParameter = "Run"; // Bool
-    [SerializeField] private InputActionReference moveActionReference; // Vector2 (joystick o W/S)
+    [SerializeField] private string runParameter = "Run";
+    [SerializeField] private InputActionReference moveActionReference;
 
     [Header("Shoot Settings")]
-    [SerializeField] private string shootTrigger = "shoot"; // Trigger
-    [SerializeField] private InputActionReference shootActionReference; // Button (gatillo o click)
+    [SerializeField] private string shootTrigger = "shoot";
+    [SerializeField] private InputActionReference shootActionReference;
+
+    [Header("Shoot Cooldown")]
+    [SerializeField] private float shootCooldown = 0.5f; // 🔥 Controlas aquí el tiempo de bloqueo
 
     [Header("Audio Settings")]
-    [SerializeField] private AudioSource shootAudioSource; // Arrastra aqu� el AudioSource con tu sonido
+    [SerializeField] private AudioSource shootAudioSource;
+
+    private bool isShooting = false;
 
     private void OnEnable()
     {
@@ -40,16 +45,29 @@ public class XRRunAndShootController : MonoBehaviour
 
     private void OnShoot(InputAction.CallbackContext context)
     {
-        // Activar animaci�n
+        // 🔒 Evitar repetir disparos
+        if (isShooting) return;
+        isShooting = true;
+
+        // Animación
         animator.SetTrigger(shootTrigger);
 
-        // Reproducir sonido si existe el AudioSource
+        // Sonido
         if (shootAudioSource != null)
-        {
             shootAudioSource.Play();
-        }
+
+        // 🔓 Desbloqueo según el tiempo que tú configures
+        Invoke(nameof(ResetShoot), shootCooldown);
+    }
+
+    private void ResetShoot()
+    {
+        isShooting = false;
     }
 }
+
+
+
 
 
 

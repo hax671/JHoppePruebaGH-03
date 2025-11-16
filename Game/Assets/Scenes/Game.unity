@@ -2195,7 +2195,7 @@ MonoBehaviour:
   attackTrigger: MeleeAttack_0
   walkSpeedParam: walkSpeed
   walkSpeed: 2
-  chaseSpeed: 5
+  chaseSpeed: 6
   walkAnimSpeed: 1
   chaseAnimSpeed: 2.5
   wanderRadius: 10
@@ -3444,9 +3444,9 @@ MonoBehaviour:
   attackTrigger: MeleeAttack_0
   walkSpeedParam: walkSpeed
   walkSpeed: 1.5
-  chaseSpeed: 4
+  chaseSpeed: 5
   walkAnimSpeed: 1
-  chaseAnimSpeed: 1.8
+  chaseAnimSpeed: 2
   wanderRadius: 10
   idleMin: 1
   idleMax: 2.5
@@ -3589,6 +3589,7 @@ MonoBehaviour:
   moveActionReference: {fileID: -9001000465050553144, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
   shootTrigger: shoot
   shootActionReference: {fileID: 8433367776138400449, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
+  shootCooldown: 0.5
   shootAudioSource: {fileID: 1546699091}
 --- !u!82 &1546699091
 AudioSource:
@@ -3602,7 +3603,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ada7cbc04838e2344a4ac3c3e67e387c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3686,23 +3687,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1546699092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546699087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2157ae65136c5114e8f57ceb0e04dc2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1202912309}
-  bullet: {fileID: 8629233658069961502, guid: 0868187af6777ae41a15b13c9e295801, type: 3}
-  shootForce: 80
-  shootRate: 1
-  shootAction: {fileID: 4024225618143680916, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
 --- !u!1 &1547682965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1888966266836810713, guid: a3e1615d38c467e4d8bc26597b0a0672, type: 3}
@@ -5117,9 +5101,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1546699091}
-    - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1546699092}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 958da6b83bdeb7445aaa8e429ad4959e, type: 3}
 --- !u!1001 &1843812520
 PrefabInstance:
@@ -5814,7 +5795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 0}
-  m_MoveSpeed: 10
+  m_MoveSpeed: 5
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
