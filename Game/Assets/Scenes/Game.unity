@@ -3307,6 +3307,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c8af5c8012f01440af6cb2bc3eb987c, type: 3}
+--- !u!1 &1344088637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344088638}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344088638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344088637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.127, y: 0, z: 1.344}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1785917127}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1347129787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9063707834238455339, guid: a3e1615d38c467e4d8bc26597b0a0672, type: 3}
@@ -4678,6 +4709,7 @@ GameObject:
   - component: {fileID: 1785917130}
   - component: {fileID: 1785917129}
   - component: {fileID: 1785917128}
+  - component: {fileID: 1785917133}
   m_Layer: 0
   m_Name: Left Controller - Grab
   m_TagString: Untagged
@@ -4697,7 +4729,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1344088638}
   m_Father: {fileID: 675187482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1785917128
@@ -5322,6 +5355,24 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &1785917133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785917126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb35c7c470c25845803d47c7a777a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 1344088638}
+  bullet: {fileID: 476216389843643099, guid: df6e3c8e8ab4cb444a783b728abe54ca, type: 3}
+  ShootForce: 10
+  ShootRate: 0.5
+  ShootAction: {fileID: 4024225618143680916, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
+  bulletLifeTime: 2
 --- !u!1 &1801181106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8790181487447803796, guid: a3e1615d38c467e4d8bc26597b0a0672, type: 3}
