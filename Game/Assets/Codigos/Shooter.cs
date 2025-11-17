@@ -4,22 +4,25 @@ using UnityEngine.InputSystem;
 public class Shooter : MonoBehaviour
 {
     [Header("Shoot Settings")]
-    public Transform Point;             // Punto desde donde se instancia la bala
-    public GameObject bullet;           // Prefab de la bala
-    public float ShootForce = 20f;      // Fuerza de la bala
-    public float ShootRate = 0.2f;      // Tiempo mínimo entre disparos
-    private float ShootRateTime;        // Temporizador interno
+    public Transform Point;
+    public GameObject bullet;
+    public float ShootForce = 20f;
+    public float ShootRate = 0.2f;
+    private float ShootRateTime;
 
     [Header("Input")]
-    public InputActionReference ShootAction;   // <-- Tú eliges el botón en el inspector
+    public InputActionReference ShootAction;
 
     [Header("Bullet Settings")]
-    public float bulletLifeTime = 5f;   // Tiempo antes de destruir la bala
+    public float bulletLifeTime = 5f;
+
+    [Header("Damage Settings")]
+    public float bulletDamage = 20f;   // <-- Daño configurable
 
 
     private void OnEnable()
     {
-        ShootAction.action.performed += OnShoot;   // Se ejecuta solo al presionar
+        ShootAction.action.performed += OnShoot;
         ShootAction.action.Enable();
     }
 
@@ -32,13 +35,19 @@ public class Shooter : MonoBehaviour
 
     private void OnShoot(InputAction.CallbackContext ctx)
     {
-        // Control de cadencia de disparo
         if (Time.time < ShootRateTime) return;
 
         ShootRateTime = Time.time + ShootRate;
 
         // Instanciar la bala
         GameObject newBullet = Instantiate(bullet, Point.position, Point.rotation);
+
+        // Establecer daño en la bala
+        Bullet bulletScript = newBullet.GetComponent<Bullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.damage = bulletDamage;
+        }
 
         // Aplicar fuerza
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
@@ -51,4 +60,7 @@ public class Shooter : MonoBehaviour
         Destroy(newBullet, bulletLifeTime);
     }
 }
+
+
+
 
