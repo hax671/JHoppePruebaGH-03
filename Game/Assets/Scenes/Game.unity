@@ -3807,6 +3807,9 @@ MonoBehaviour:
   lineRenderer_teleport: {fileID: 302646994}
   xrInteractorLineVisual_teleport: {fileID: 302646993}
   Joystick_North_Ref: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  dashDistance: 12
+  dashSpeed: 15
+  xrOrigin: {fileID: 2127572874}
 --- !u!1 &1535096623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1256211072402915416, guid: a3e1615d38c467e4d8bc26597b0a0672, type: 3}
