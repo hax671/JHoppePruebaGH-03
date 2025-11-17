@@ -5,13 +5,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class RightHandController : MonoBehaviour
 {
-    //grab
+    // GRAB
     public ActionBasedController ActionBasedController_grab;
     public XRRayInteractor xrRayInteractor_grab;
     public LineRenderer lineRenderer_grab;
     public XRInteractorLineVisual xrInteractorLineVisual_grab;
 
-    //teleport
+    // TELEPORT (solo rayo, teletransporte desactivado)
     public ActionBasedController ActionBasedController_teleport;
     public XRRayInteractor xrRayInteractor_teleport;
     public LineRenderer lineRenderer_teleport;
@@ -29,21 +29,34 @@ public class RightHandController : MonoBehaviour
     private Vector3 dashDirection;
     private float dashRemaining;
 
-    private bool isTeleportMode = false;  // <-- FIX
+    private bool isTeleportMode = false;
+
+    private TeleportationProvider teleportProvider; // <-- agregado
 
     private void Awake()
     {
         cc = xrOrigin.GetComponent<CharacterController>();
+        teleportProvider = FindObjectOfType<TeleportationProvider>();
+
+        // Importante: desactivar teletransporte desde el inicio
+        if (teleportProvider != null)
+            teleportProvider.enabled = false;
     }
 
     private void JoystickArribaPresionado(InputAction.CallbackContext context)
     {
-        isTeleportMode = true; // <-- estamos en modo teletransporte
+        isTeleportMode = true;
 
+        // Desactivar grab ray
         xrRayInteractor_grab.enabled = false;
 
+        // Activar rayo de teleport (solo visual)
         xrRayInteractor_teleport.enabled = true;
         xrInteractorLineVisual_teleport.enabled = true;
+
+        // Desactivar teletransporte REAL
+        if (teleportProvider != null)
+            teleportProvider.enabled = false;
 
         xrRayInteractor_teleport.enableUIInteraction = false;
     }
@@ -53,24 +66,42 @@ public class RightHandController : MonoBehaviour
 
     private void JoystickArribaLiberado_Invoke()
     {
-        // Si no estaba activo el rayo → NO hacemos dash
         if (!isTeleportMode)
             return;
 
-        isTeleportMode = false; // salimos de teletransporte
+        isTeleportMode = false;
 
+        // Volver a activar grab ray
         xrRayInteractor_grab.enabled = true;
 
+        // Apagar el ray del teleport
         xrRayInteractor_teleport.enabled = false;
         xrInteractorLineVisual_teleport.enabled = false;
 
-        // --- AHORA SÍ: solo hacemos dash si venía del modo teletransporte ---
+        // ------------ BLOQUEAR DASH SI HAY PARED ----------------
+        RaycastHit hit;
+        Vector3 origin = xrOrigin.position + Vector3.up * 0.1f;
+        Vector3 dir = xrOrigin.forward;
+
+        if (Physics.Raycast(origin, dir, out hit, dashDistance))
+        {
+            Debug.Log("Dash bloqueado, pared detectada.");
+            return; // <-- NO hacemos dash
+        }
+
+        // ---------------------------------------------------------
+
+        // Dash direction
         dashDirection = xrOrigin.forward;
         dashDirection.y = 0;
         dashDirection.Normalize();
 
         dashRemaining = dashDistance;
         isDashing = true;
+
+        // Asegurar que teletransporte permanezca desactivado
+        if (teleportProvider != null)
+            teleportProvider.enabled = false;
     }
 
     private void Update()
@@ -78,7 +109,6 @@ public class RightHandController : MonoBehaviour
         if (!isDashing) return;
 
         float step = dashSpeed * Time.deltaTime;
-
         if (step > dashRemaining)
             step = dashRemaining;
 
@@ -87,7 +117,13 @@ public class RightHandController : MonoBehaviour
         dashRemaining -= step;
 
         if (dashRemaining <= 0f)
+        {
             isDashing = false;
+
+            // Rehabilitar teletransporte (opcional)
+            // teleportProvider.enabled = true; 
+            // Lo dejo desactivado porque tú NO quieres teletransporte.
+        }
     }
 
     private void OnEnable()
@@ -102,5 +138,11 @@ public class RightHandController : MonoBehaviour
         Joystick_North_Ref.action.canceled -= JoystickArribaLiberado;
     }
 }
+
+
+
+
+
+
 
 
