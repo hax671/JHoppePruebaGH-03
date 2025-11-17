@@ -2402,20 +2402,20 @@ MonoBehaviour:
   player: {fileID: 2127572874}
   audioSource: {fileID: 665031406}
   detectClip: {fileID: 8300000, guid: 2014ecb0c266b3d47b2d934273a22aaa, type: 3}
-  attackClip: {fileID: 0}
+  attackClip: {fileID: 8300000, guid: ca2e7e5b16e2df941bc3c4730921d2c3, type: 3}
   attackSoundCooldown: 0.6
   walkParam: isWalking
   attackTrigger: MeleeAttack_0
   walkSpeedParam: walkSpeed
   walkSpeed: 2
-  chaseSpeed: 6
+  chaseSpeed: 6.2
   walkAnimSpeed: 1
   chaseAnimSpeed: 2.5
   wanderRadius: 10
   idleMin: 1
   idleMax: 2.5
   arriveThreshold: 0.4
-  visionRange: 12
+  visionRange: 15
   attackRange: 3.7
 --- !u!195 &665031404
 NavMeshAgent:
