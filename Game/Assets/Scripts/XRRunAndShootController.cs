@@ -15,12 +15,14 @@ public class XRRunAndShootController : MonoBehaviour
     [SerializeField] private InputActionReference shootActionReference;
 
     [Header("Shoot Cooldown")]
-    [SerializeField] private float shootCooldown = 0.5f; // 🔥 Controlas aquí el tiempo de bloqueo
+    [SerializeField] private float shootCooldown = 0.5f;
 
     [Header("Audio Settings")]
-    [SerializeField] private AudioSource shootAudioSource;
+    [SerializeField] private AudioSource shootAudioSource;   // Sonido de disparo
+    [SerializeField] private AudioSource runAudioSource;     // 🔊 Nuevo: sonido de correr
 
     private bool isShooting = false;
+    private bool wasRunning = false; // Para detectar cambio de estado
 
     private void OnEnable()
     {
@@ -40,23 +42,42 @@ public class XRRunAndShootController : MonoBehaviour
     {
         Vector2 moveValue = moveActionReference.action.ReadValue<Vector2>();
         bool isRunning = moveValue.y > 0.5f;
+
+        // Actualizar animación
         animator.SetBool(runParameter, isRunning);
+
+        // ---------------------------
+        // 🔊 CONTROL DEL SONIDO RUN
+        // ---------------------------
+        if (isRunning && !wasRunning)
+        {
+            // Empezó a correr → reproducir sonido
+            if (runAudioSource != null && !runAudioSource.isPlaying)
+                runAudioSource.Play();
+        }
+        else if (!isRunning && wasRunning)
+        {
+            // Dejó de correr → detener sonido
+            if (runAudioSource != null)
+                runAudioSource.Stop();
+        }
+
+        wasRunning = isRunning;
     }
 
     private void OnShoot(InputAction.CallbackContext context)
     {
-        // 🔒 Evitar repetir disparos
         if (isShooting) return;
         isShooting = true;
 
         // Animación
         animator.SetTrigger(shootTrigger);
 
-        // Sonido
+        // Sonido del disparo
         if (shootAudioSource != null)
             shootAudioSource.Play();
 
-        // 🔓 Desbloqueo según el tiempo que tú configures
+        // Desbloquear disparo después del cooldown
         Invoke(nameof(ResetShoot), shootCooldown);
     }
 
@@ -65,6 +86,7 @@ public class XRRunAndShootController : MonoBehaviour
         isShooting = false;
     }
 }
+
 
 
 
