@@ -11,9 +11,13 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
 
     [Header("Audio")]
-    public AudioSource audioSource;      // <-- ÚNICO audiosource usado
+    public AudioSource audioSource;
     public AudioClip detectClip;
     public AudioClip attackClip;
+
+    [Header("Attack Sound Cooldown")]
+    public float attackSoundCooldown = 0.6f;  // <-- TIEMPO ENTRE SONIDOS
+    private float attackSoundTimer = 0f;      // <-- TIMER INTERNO
 
     [Header("Parámetros de Animación")]
     public string walkParam = "isWalking";
@@ -46,7 +50,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (agent == null) agent = GetComponent<NavMeshAgent>();
         if (animator == null) animator = GetComponent<Animator>();
-        if (audioSource == null) audioSource = GetComponent<AudioSource>(); // <-- único que usamos
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
 
         agent.speed = walkSpeed;
         animator.SetFloat(walkSpeedParam, walkAnimSpeed);
@@ -56,13 +60,16 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        // actualizar cooldown del ataque
+        if (attackSoundTimer > 0)
+            attackSoundTimer -= Time.deltaTime;
+
         if (!isChasing)
         {
             if (CanSeePlayer())
             {
                 isChasing = true;
 
-                // Play detect sound ONCE
                 if (!detectSoundPlayed && detectClip != null)
                 {
                     audioSource.PlayOneShot(detectClip);
@@ -85,15 +92,11 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // ------------------------ DETECCIÓN ------------------------
-
     bool CanSeePlayer()
     {
         float dist = Vector3.Distance(transform.position, player.position);
         return dist <= visionRange;
     }
-
-    // ------------------------ PERSECUCIÓN ------------------------
 
     void ChasePlayer()
     {
@@ -120,8 +123,6 @@ public class EnemyAI : MonoBehaviour
             ChooseNewPatrolPoint();
         }
     }
-
-    // ------------------------ PATRULLA ------------------------
 
     void Patrol()
     {
@@ -168,14 +169,19 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // ------------------------ ATAQUE DESDE LA ANIMACIÓN ------------------------
-    // Llamado desde Animation Event (Melee Attack)
+    // ------------------------ ATAQUE DESDE ANIMATION EVENT ------------------------
     public void PlayAttackSound()
     {
-        if (attackClip != null)
-            audioSource.PlayOneShot(attackClip);
+        if (attackClip == null) return;
+
+        // cooldown
+        if (attackSoundTimer > 0) return;
+
+        audioSource.PlayOneShot(attackClip);
+        attackSoundTimer = attackSoundCooldown;
     }
 }
+
 
 
 
