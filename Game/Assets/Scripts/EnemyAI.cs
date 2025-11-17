@@ -13,11 +13,12 @@ public class EnemyAI : MonoBehaviour
     [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip detectClip;
-    public AudioClip attackClip;
+    public AudioClip attackClip;        // sonido ataque principal
+    public AudioClip attackExtraClip;   // sonido extra al atacar
 
     [Header("Attack Sound Cooldown")]
-    public float attackSoundCooldown = 0.6f;  // <-- TIEMPO ENTRE SONIDOS
-    private float attackSoundTimer = 0f;      // <-- TIMER INTERNO
+    public float attackSoundCooldown = 0.6f;
+    private float attackSoundTimer = 0f;
 
     [Header("Parámetros de Animación")]
     public string walkParam = "isWalking";
@@ -169,18 +170,31 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // ------------------------ ATAQUE DESDE ANIMATION EVENT ------------------------
+    // --------------------------------------------------------
+    // SONIDO PRINCIPAL DE ATAQUE (ANIMATION EVENT)
+    // --------------------------------------------------------
     public void PlayAttackSound()
     {
         if (attackClip == null) return;
-
-        // cooldown
         if (attackSoundTimer > 0) return;
 
         audioSource.PlayOneShot(attackClip);
         attackSoundTimer = attackSoundCooldown;
     }
+
+    // --------------------------------------------------------
+    // SONIDO EXTRA DURANTE EL ATAQUE (ANIMATION EVENT)
+    // --------------------------------------------------------
+    public void PlayAttackExtraSound()
+    {
+        if (attackExtraClip != null)
+            audioSource.PlayOneShot(attackExtraClip);
+    }
 }
+
+
+
+
 
 
 
