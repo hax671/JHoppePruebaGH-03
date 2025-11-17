@@ -10,17 +10,22 @@ public class EnemyAI : MonoBehaviour
     [Header("Jugador")]
     public Transform player;
 
+    [Header("Audio")]
+    public AudioSource audioSource;      // <-- ÚNICO audiosource usado
+    public AudioClip detectClip;
+    public AudioClip attackClip;
+
     [Header("Parámetros de Animación")]
     public string walkParam = "isWalking";
     public string attackTrigger = "MeleeAttack_0";
-    public string walkSpeedParam = "walkSpeed"; // <-- nuevo parámetro
+    public string walkSpeedParam = "walkSpeed";
 
     [Header("Velocidades")]
-    public float walkSpeed = 1.5f;   // velocidad normal
-    public float chaseSpeed = 4f;    // velocidad cuando persigue
+    public float walkSpeed = 1.5f;
+    public float chaseSpeed = 4f;
 
-    public float walkAnimSpeed = 1f;     // velocidad animación normal
-    public float chaseAnimSpeed = 1.8f;  // velocidad animación persiguiendo
+    public float walkAnimSpeed = 1f;
+    public float chaseAnimSpeed = 1.8f;
 
     [Header("Patrulla Aleatoria")]
     public float wanderRadius = 10f;
@@ -35,11 +40,13 @@ public class EnemyAI : MonoBehaviour
     private Vector3 patrolPoint;
     private bool isIdle = false;
     private bool isChasing = false;
+    private bool detectSoundPlayed = false;
 
     private void Start()
     {
         if (agent == null) agent = GetComponent<NavMeshAgent>();
         if (animator == null) animator = GetComponent<Animator>();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>(); // <-- único que usamos
 
         agent.speed = walkSpeed;
         animator.SetFloat(walkSpeedParam, walkAnimSpeed);
@@ -54,8 +61,16 @@ public class EnemyAI : MonoBehaviour
             if (CanSeePlayer())
             {
                 isChasing = true;
-                agent.speed = chaseSpeed;                                // <-- velocidad navmesh al detectar
-                animator.SetFloat(walkSpeedParam, chaseAnimSpeed);       // <-- subir velocidad animación
+
+                // Play detect sound ONCE
+                if (!detectSoundPlayed && detectClip != null)
+                {
+                    audioSource.PlayOneShot(detectClip);
+                    detectSoundPlayed = true;
+                }
+
+                agent.speed = chaseSpeed;
+                animator.SetFloat(walkSpeedParam, chaseAnimSpeed);
                 animator.SetBool(walkParam, true);
             }
         }
@@ -97,9 +112,10 @@ public class EnemyAI : MonoBehaviour
         if (distance > visionRange + 2f)
         {
             isChasing = false;
+            detectSoundPlayed = false;
 
-            agent.speed = walkSpeed;                                // <-- regresar velocidad normal
-            animator.SetFloat(walkSpeedParam, walkAnimSpeed);       // <-- regresar animación normal
+            agent.speed = walkSpeed;
+            animator.SetFloat(walkSpeedParam, walkAnimSpeed);
 
             ChooseNewPatrolPoint();
         }
@@ -151,7 +167,17 @@ public class EnemyAI : MonoBehaviour
             patrolPoint = transform.position;
         }
     }
+
+    // ------------------------ ATAQUE DESDE LA ANIMACIÓN ------------------------
+    // Llamado desde Animation Event (Melee Attack)
+    public void PlayAttackSound()
+    {
+        if (attackClip != null)
+            audioSource.PlayOneShot(attackClip);
+    }
 }
+
+
 
 
 
