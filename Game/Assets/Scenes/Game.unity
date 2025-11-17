@@ -3317,7 +3317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1344088638}
   m_Layer: 0
-  m_Name: Point
+  m_Name: Spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5369,7 +5369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Point: {fileID: 1344088638}
   bullet: {fileID: 476216389843643099, guid: df6e3c8e8ab4cb444a783b728abe54ca, type: 3}
-  ShootForce: 10
+  ShootForce: 85
   ShootRate: 0.5
   ShootAction: {fileID: 4024225618143680916, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
   bulletLifeTime: 2
