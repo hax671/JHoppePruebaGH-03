@@ -6,28 +6,41 @@ public class XRKickController : MonoBehaviour
     [Header("Animator")]
     [SerializeField] private Animator animator;
 
-    [Header("Kick Settings")]
-    [SerializeField] private string kickTrigger = "Kick"; // nombre del Trigger en el Animator
-    [SerializeField] private InputActionReference kickActionReference; // acción del botón o gatillo
+    [Header("Kick Animation")]
+    [SerializeField] private string kickTrigger = "Kick"; // Trigger de la animación
+
+    [Header("Input")]
+    [SerializeField] private InputActionReference kickActionReference;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource; // ÚNICO AudioSource
+    [SerializeField] private AudioClip kickSound;     // Sonido del golpe
 
     private void OnEnable()
     {
-        // Activamos la acción del Input System y nos suscribimos al evento
         kickActionReference.action.Enable();
         kickActionReference.action.performed += OnKick;
     }
 
     private void OnDisable()
     {
-        // Desactivamos y eliminamos la suscripción
         kickActionReference.action.performed -= OnKick;
         kickActionReference.action.Disable();
     }
 
     private void OnKick(InputAction.CallbackContext context)
     {
-        // Dispara la animación (una sola vez)
         animator.SetTrigger(kickTrigger);
     }
+
+    // -----------------------------------------------------
+    // LLAMADO DESDE UN ANIMATION EVENT EN EL GOLPE
+    // -----------------------------------------------------
+    public void PlayKickSound()
+    {
+        if (kickSound != null && audioSource != null)
+            audioSource.PlayOneShot(kickSound);
+    }
 }
+
 
