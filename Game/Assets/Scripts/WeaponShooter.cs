@@ -1,42 +1,60 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class WeaponShooter : MonoBehaviour
+public class XRShootController : MonoBehaviour
 {
-    [Header("Referencias")]
-    public Transform spawnPoint;         // Dónde aparece la bala
-    public GameObject bullet;            // Prefab de la bala
+    [Header("References")]
+    public Transform SpawnPoint;          // Punto donde se instanciará la bala
+    public GameObject bullet;             // Prefab de la bala
 
-    [Header("Disparo")]
-    public float shootForce = 20f;       // Fuerza de salida
-    public float shootRate = 0.3f;       // Tiempo entre disparos
+    [Header("Shoot Settings")]
+    public float ShootForce = 20f;        // Fuerza con la que se dispara la bala
+    public float ShootRate = 0.5f;        // Tiempo mínimo entre disparos
+    private float ShootRateTime = 0f;     // Contador del tiempo desde el último disparo
+    public float BulletLifeTime = 3f;     // Tiempo para destruir la bala
 
-    private float shootRateTime = 0f;    // Contador interno
+    [Header("Input")]
+    public InputActionReference shootActionReference; // Acción de disparo asignable
 
-    void Update()
+    private void OnEnable()
     {
-        // Actualizar el temporizador
-        if (shootRateTime > 0)
-            shootRateTime -= Time.deltaTime;
+        if (shootActionReference != null)
+            shootActionReference.action.performed += ShootPerformed;
+    }
 
-        // Disparar con click izquierdo o el input que quieras
-        if (Input.GetButton("Fire1") && shootRateTime <= 0)
+    private void OnDisable()
+    {
+        if (shootActionReference != null)
+            shootActionReference.action.performed -= ShootPerformed;
+    }
+
+    private void Update()
+    {
+        ShootRateTime += Time.deltaTime;
+    }
+
+    private void ShootPerformed(InputAction.CallbackContext context)
+    {
+        // Solo disparamos cuando se presiona el botón una vez
+        if (ShootRateTime >= ShootRate)
         {
-            Shoot();
+            ShootRateTime = 0f;
+
+            // Instanciar la bala en SpawnPoint
+            GameObject newBullet = Instantiate(bullet, SpawnPoint.position, SpawnPoint.rotation);
+
+            // Aplicar fuerza
+            Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(SpawnPoint.forward * ShootForce, ForceMode.Impulse);
+            }
+
+            // Destruir la bala después de X tiempo
+            Destroy(newBullet, BulletLifeTime);
         }
     }
-
-    void Shoot()
-    {
-        // Crear la bala en el spawnPoint
-        GameObject newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
-
-        // Agregar fuerza a la bala
-        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-        rb.AddForce(spawnPoint.forward * shootForce, ForceMode.Impulse);
-
-        // Reiniciar el tiempo del disparo
-        shootRateTime = shootRate;
-    }
 }
+
 
 
