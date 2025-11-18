@@ -4808,7 +4808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.34
+      value: -10.6
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4816,7 +4816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.42
+      value: -18.37
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9920,7 +9920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.82
+      value: -17.6
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9928,7 +9928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.7
+      value: 6.37
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16990,7 +16990,7 @@ PrefabInstance:
     - target: {fileID: -5644133064174452605, guid: 6b97e7d092e974246946af630e156672, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: f6afe52dff9a6534bb7aea591d5aae71, type: 2}
     - target: {fileID: 8128668236925612103, guid: 6b97e7d092e974246946af630e156672, type: 3}
       propertyPath: m_Name
       value: Vida
