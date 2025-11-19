@@ -4,43 +4,43 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Componentes")]
-    public NavMeshAgent agent;
-    public Animator animator;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Animator animator;
 
     [Header("Jugador")]
-    public Transform player;
+    [SerializeField] private Transform player;
 
     [Header("Audio")]
-    public AudioSource audioSource;
-    public AudioClip detectClip;
-    public AudioClip attackClip;        // sonido ataque principal
-    public AudioClip attackExtraClip;   // sonido extra al atacar
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip detectClip;
+    [SerializeField] private AudioClip attackClip;        // sonido ataque principal
+    [SerializeField] private AudioClip attackExtraClip;   // sonido extra al atacar
 
     [Header("Attack Sound Cooldown")]
-    public float attackSoundCooldown = 0.6f;
+    [SerializeField] private float attackSoundCooldown = 0.6f;
     private float attackSoundTimer = 0f;
 
     [Header("Parámetros de Animación")]
-    public string walkParam = "isWalking";
-    public string attackTrigger = "MeleeAttack_0";
-    public string walkSpeedParam = "walkSpeed";
+    [SerializeField] private string walkParam = "isWalking";
+    [SerializeField] private string attackTrigger = "MeleeAttack_0";
+    [SerializeField] private string walkSpeedParam = "walkSpeed";
 
     [Header("Velocidades")]
-    public float walkSpeed = 1.5f;
-    public float chaseSpeed = 4f;
+    [SerializeField] private float walkSpeed = 1.5f;
+    [SerializeField] private float chaseSpeed = 4f;
 
-    public float walkAnimSpeed = 1f;
-    public float chaseAnimSpeed = 1.8f;
+    [SerializeField] private float walkAnimSpeed = 1f;
+    [SerializeField] private float chaseAnimSpeed = 1.8f;
 
     [Header("Patrulla Aleatoria")]
-    public float wanderRadius = 10f;
-    public float idleMin = 1f;
-    public float idleMax = 4f;
-    public float arriveThreshold = 0.4f;
+    [SerializeField] private float wanderRadius = 10f;
+    [SerializeField] private float idleMin = 1f;
+    [SerializeField] private float idleMax = 4f;
+    [SerializeField] private float arriveThreshold = 0.4f;
 
     [Header("Detección")]
-    public float visionRange = 12f;
-    public float attackRange = 1.5f;
+    [SerializeField] private float visionRange = 12f;
+    [SerializeField] private float attackRange = 1.5f;
 
     private Vector3 patrolPoint;
     private bool isIdle = false;
@@ -191,6 +191,7 @@ public class EnemyAI : MonoBehaviour
             audioSource.PlayOneShot(attackExtraClip);
     }
 }
+
 
 
 
