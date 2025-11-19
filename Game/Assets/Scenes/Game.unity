@@ -5003,7 +5003,7 @@ MonoBehaviour:
   newSkybox: {fileID: 2100000, guid: 3e56423e1fe71f94ea97f5bb2004a7e6, type: 2}
   objectToActivate: {fileID: 649655850}
   sceneToLoad: GameOver
-  delayBeforeSceneChange: 3
+  delayBeforeSceneChange: 2
 --- !u!4 &640105734
 Transform:
   m_ObjectHideFlags: 0
@@ -5375,7 +5375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  hitTime: 0.2
+  hitTime: 0.1
 --- !u!65 &665031408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9391,7 +9391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  hitTime: 0.2
+  hitTime: 0.1
 --- !u!65 &1491640414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18022,6 +18022,7 @@ MonoBehaviour:
   maxHealth: 150
   deathDelay: 2
   sceneToLoad: GameOver
+  healthFill: {fileID: 1265674866}
 --- !u!1 &2130713627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4818675530133808060, guid: 9e90d7208182ada4d8ab69c276c1662e, type: 3}
