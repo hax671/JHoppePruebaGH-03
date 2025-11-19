@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 2799df315b68ff54d91403d6e41f76db
   m_configObjects:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 1893426c65ffdd64cb2df851b4d81142, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 092d68d801ee0a543b13b9346472a233, type: 2}

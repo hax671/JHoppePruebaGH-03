@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class XRKController : MonoBehaviour
 {
@@ -8,10 +9,14 @@ public class XRKController : MonoBehaviour
     public float checkInterval = 1f;       // Cada cuántos segundos revisa
 
     [Header("Skybox Settings")]
-    public Material newSkybox;             // Skybox que quieres poner al ganar
+    public Material newSkybox;             // Skybox al derrotar enemigos
 
     [Header("Object Activation")]
-    public GameObject objectToActivate;    // Prefab u objeto que quieres activar
+    public GameObject objectToActivate;    // Objeto a activar al ganar
+
+    [Header("Scene Settings")]
+    [SerializeField] private string sceneToLoad;  // Nombre de la escena a cargar
+    [SerializeField] private float delayBeforeSceneChange = 3f; // Segundos antes del cambio
 
     private bool finished = false;
 
@@ -24,7 +29,6 @@ public class XRKController : MonoBehaviour
     {
         while (!finished)
         {
-            // Si el padre no tiene hijos, ya no hay enemigos
             if (enemyParent != null && enemyParent.childCount == 0)
             {
                 finished = true;
@@ -44,12 +48,33 @@ public class XRKController : MonoBehaviour
         if (newSkybox != null)
             RenderSettings.skybox = newSkybox;
 
-        // Activar el objeto o componente
+        // Activar objeto opcional
         if (objectToActivate != null)
             objectToActivate.SetActive(true);
 
-        // Desactivar la niebla
+        // Desactivar niebla
         RenderSettings.fog = false;
+
+        // Iniciar el cambio de escena con espera
+        StartCoroutine(LoadSceneAfterDelay());
+    }
+
+    private IEnumerator LoadSceneAfterDelay()
+    {
+        Debug.Log("⏳ Esperando " + delayBeforeSceneChange + " segundos antes de cambiar de escena...");
+
+        yield return new WaitForSeconds(delayBeforeSceneChange);
+
+        if (!string.IsNullOrEmpty(sceneToLoad))
+        {
+            Debug.Log("➡ Cambiando a la escena: " + sceneToLoad);
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            Debug.LogWarning("⚠ No has asignado una escena en 'sceneToLoad'.");
+        }
     }
 }
+
 
