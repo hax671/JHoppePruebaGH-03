@@ -1,5 +1,6 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,25 +10,32 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Death Settings")]
     [SerializeField] private float deathDelay = 2f; // segundos para cambiar de escena
-    [SerializeField] private string sceneToLoad = "GameOver"; // nombre de escena
+    [SerializeField] private string sceneToLoad = "GameOver";
+
+    [Header("UI Settings")]
+    [SerializeField] private Image healthFill; // ‚Üê asignar el Fill de la barra de vida
 
     private bool isDead = false;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        UpdateHealthUI();
     }
 
     // ----------------------------------------
-    //             RECIBIR DA—O
+    //             RECIBIR DA√ëO
     // ----------------------------------------
     public void TakeDamage(float amount)
     {
         if (isDead) return;
 
         currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         Debug.Log("Vida del jugador: " + currentHealth);
+
+        UpdateHealthUI();
 
         if (currentHealth <= 0f)
         {
@@ -40,16 +48,29 @@ public class PlayerHealth : MonoBehaviour
     // ----------------------------------------
     public void Heal(float amount)
     {
-        if (isDead) return; // No curar si ya est· muerto
+        if (isDead) return;
 
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         Debug.Log("Jugador curado: +" + amount + " | Vida actual: " + currentHealth);
+
+        UpdateHealthUI();
     }
 
     // ----------------------------------------
-    //             MUERTE
+    //             ACTUALIZAR UI
+    // ----------------------------------------
+    private void UpdateHealthUI()
+    {
+        if (healthFill != null)
+        {
+            healthFill.fillAmount = currentHealth / maxHealth;
+        }
+    }
+
+    // ----------------------------------------
+    //                 MUERTE
     // ----------------------------------------
     private void Die()
     {
@@ -65,5 +86,6 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 }
+
 
 
