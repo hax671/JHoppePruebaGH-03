@@ -2212,9 +2212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e1557bd14b164cb98490b2c800001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FistPoint: {fileID: 1745011479}
-  FistRate: 0.3
-  FistAction: {fileID: 2481708170012818870, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
+  fistPoint: {fileID: 1745011479}
+  fistRate: 0.4
+  fistAction: {fileID: 2481708170012818870, guid: 275cdc652fc21e340b8f0463e6a31d5f, type: 3}
   fistDamage: 15
   hitRadius: 2
   enemyLayer:

@@ -4,50 +4,47 @@ using UnityEngine.InputSystem;
 public class FistAttack : MonoBehaviour
 {
     [Header("Fist Settings")]
-    public Transform FistPoint;        // Punto desde donde se hace el golpe (punta del puño)
-    public float FistRate = 0.4f;      // Tiempo mínimo entre golpes
-    private float FistRateTime;
+    [SerializeField] private Transform fistPoint;     // Punto desde donde se detecta el golpe
+    [SerializeField] private float fistRate = 0.4f;   // Tiempo entre golpes
+    private float fistRateTime;
 
     [Header("Input")]
-    public InputActionReference FistAction; // Botón del golpe
+    [SerializeField] private InputActionReference fistAction; // Botón del golpe
 
     [Header("Damage Settings")]
-    public float fistDamage = 15f;     // Daño del golpe
-    public float hitRadius = 0.7f;     // Radio del golpe para detectar enemigos
-    public LayerMask enemyLayer;       // Layer para enemigos (si no tienes, puedes usar Default)
-
+    [SerializeField] private float fistDamage = 15f;  // Daño
+    [SerializeField] private float hitRadius = 0.7f;  // Radio del golpe
+    [SerializeField] private LayerMask enemyLayer;     // Layer del enemigo
 
 
     private void OnEnable()
     {
-        FistAction.action.performed += OnFist;
-        FistAction.action.Enable();
+        fistAction.action.performed += OnFist;
+        fistAction.action.Enable();
     }
 
     private void OnDisable()
     {
-        FistAction.action.performed -= OnFist;
-        FistAction.action.Disable();
+        fistAction.action.performed -= OnFist;
+        fistAction.action.Disable();
     }
 
 
     private void OnFist(InputAction.CallbackContext ctx)
     {
-        // Controla cada cuánto puedes golpear
-        if (Time.time < FistRateTime) return;
+        // Control de cadencia
+        if (Time.time < fistRateTime) return;
 
-        FistRateTime = Time.time + FistRate;
+        fistRateTime = Time.time + fistRate;
 
-        // Hacer daño
         DoPunchDamage();
     }
 
 
     private void DoPunchDamage()
     {
-        Vector3 center = FistPoint.position;
+        Vector3 center = fistPoint.position;
 
-        // Detectamos enemigos en un radio alrededor del puño
         Collider[] hits = Physics.OverlapSphere(center, hitRadius, enemyLayer);
 
         foreach (Collider col in hits)
@@ -63,13 +60,13 @@ public class FistAttack : MonoBehaviour
     }
 
 
-    // Para ver el área del golpe en la escena
     private void OnDrawGizmosSelected()
     {
-        if (FistPoint == null) return;
+        if (fistPoint == null) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(FistPoint.position, hitRadius);
+        Gizmos.DrawWireSphere(fistPoint.position, hitRadius);
     }
 }
+
 
