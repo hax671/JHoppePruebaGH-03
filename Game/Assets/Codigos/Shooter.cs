@@ -4,21 +4,20 @@ using UnityEngine.InputSystem;
 public class Shooter : MonoBehaviour
 {
     [Header("Shoot Settings")]
-    public Transform Point;
-    public GameObject bullet;
-    public float ShootForce = 20f;
-    public float ShootRate = 0.2f;
+    [SerializeField] private Transform Point;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private float ShootForce = 20f;
+    [SerializeField] private float ShootRate = 0.2f;
     private float ShootRateTime;
 
     [Header("Input")]
-    public InputActionReference ShootAction;
+    [SerializeField] private InputActionReference ShootAction;
 
     [Header("Bullet Settings")]
-    public float bulletLifeTime = 5f;
+    [SerializeField] private float bulletLifeTime = 5f;
 
     [Header("Damage Settings")]
-    public float bulletDamage = 20f;   // <-- Daño configurable
-
+    [SerializeField] private float bulletDamage = 20f;   // <-- Daño configurable
 
     private void OnEnable()
     {
@@ -31,7 +30,6 @@ public class Shooter : MonoBehaviour
         ShootAction.action.performed -= OnShoot;
         ShootAction.action.Disable();
     }
-
 
     private void OnShoot(InputAction.CallbackContext ctx)
     {
@@ -60,6 +58,7 @@ public class Shooter : MonoBehaviour
         Destroy(newBullet, bulletLifeTime);
     }
 }
+
 
 
 
