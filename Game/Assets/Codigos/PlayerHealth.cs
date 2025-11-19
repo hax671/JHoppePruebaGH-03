@@ -18,6 +18,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    // ----------------------------------------
+    //             RECIBIR DAÑO
+    // ----------------------------------------
     public void TakeDamage(float amount)
     {
         if (isDead) return;
@@ -32,6 +35,22 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // ----------------------------------------
+    //             RECUPERAR VIDA
+    // ----------------------------------------
+    public void Heal(float amount)
+    {
+        if (isDead) return; // No curar si ya está muerto
+
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log("Jugador curado: +" + amount + " | Vida actual: " + currentHealth);
+    }
+
+    // ----------------------------------------
+    //             MUERTE
+    // ----------------------------------------
     private void Die()
     {
         isDead = true;
@@ -46,4 +65,5 @@ public class PlayerHealth : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 }
+
 
