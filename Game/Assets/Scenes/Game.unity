@@ -5121,6 +5121,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 665031408}
+    - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 665031410}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
 --- !u!1 &665031401 stripped
 GameObject:
@@ -5324,6 +5327,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8897093224900880590, guid: b0e113ae59624f24283c1ed5f432d06a, type: 3}
   m_PrefabInstance: {fileID: 665031400}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &665031410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665031401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906e22411474a6041b4e2fd6f549dad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2127572874}
+  damagePerSecond: 15
+  damageInterval: 0.3
+  damageDistance: 4
 --- !u!4 &671679688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8897093224900880590, guid: 5065419b93a533145a802962308496b1, type: 3}
@@ -9081,7 +9100,7 @@ MonoBehaviour:
   attackTrigger: MeleeAttack_0
   walkSpeedParam: walkSpeed
   walkSpeed: 1.5
-  chaseSpeed: 5
+  chaseSpeed: 6
   walkAnimSpeed: 1
   chaseAnimSpeed: 2
   wanderRadius: 10
@@ -9249,6 +9268,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8897093224900880590, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
   m_PrefabInstance: {fileID: 1647285254}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1491640416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491640405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906e22411474a6041b4e2fd6f549dad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2127572874}
+  damagePerSecond: 15
+  damageInterval: 0.4
+  damageDistance: 3.5
 --- !u!1 &1499474632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7980902932647591790, guid: 9e90d7208182ada4d8ab69c276c1662e, type: 3}
@@ -10385,6 +10420,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1491640414}
+    - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1491640416}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 0078c7b3a9a95c4499c3358b7273ec34, type: 3}
 --- !u!1 &1658581250 stripped
 GameObject:
@@ -17629,6 +17667,7 @@ GameObject:
   - component: {fileID: 2127572873}
   - component: {fileID: 2127572872}
   - component: {fileID: 2127572871}
+  - component: {fileID: 2127572875}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Player
@@ -17714,6 +17753,21 @@ Transform:
   - {fileID: 1253157171}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -178.419, z: 0}
+--- !u!114 &2127572875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127572870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12034239168845b47984890d2a41a840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 150
+  deathDelay: 2
+  sceneToLoad: GameOver
 --- !u!1 &2130713627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4818675530133808060, guid: 9e90d7208182ada4d8ab69c276c1662e, type: 3}
