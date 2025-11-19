@@ -5003,7 +5003,7 @@ MonoBehaviour:
   newSkybox: {fileID: 2100000, guid: 3e56423e1fe71f94ea97f5bb2004a7e6, type: 2}
   objectToActivate: {fileID: 649655850}
   sceneToLoad: GameOver
-  delayBeforeSceneChange: 2
+  delayBeforeSceneChange: 3
 --- !u!4 &640105734
 Transform:
   m_ObjectHideFlags: 0
