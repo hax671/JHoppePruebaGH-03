@@ -3787,6 +3787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77cfafbfe0a5c843810e308c975b46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSceneName: Video
+  autoSceneName: Video
+  autoLoadDelay: 0
 --- !u!1 &753844990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2668068530720015029, guid: 9e90d7208182ada4d8ab69c276c1662e, type: 3}
